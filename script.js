@@ -1,5 +1,5 @@
 const width = 500;
-const height = 500;
+const height = 700;
 const padding = 20;
 let dataset;
 let i;
@@ -11,14 +11,21 @@ const svg = d3.select("body")
     .attr("height", height)
     .attr("width", width);
 
-// async function parseData() {
-//     let parsedData = await d3.json("constellations.json");
-//     return parsedData;
-// }
-
 d3.json("constellations.json").then(function(data){
 
     dataset = data.features;
+
+    let zodiacOnly = [];
+
+    for (i = 0; i < data.features.length; i++) {
+        if (dataset[i].id == 'Lib' || dataset[i].id == 'Psc' || dataset[i].id == 'Ari' || dataset[i].id == 'Leo' || dataset[i].id == 'Cnc' || dataset[i].id == 'Sco' || dataset[i].id == 'Tau' || dataset[i].id == 'Sgr' || dataset[i].id == 'Gem' || dataset[i].id == 'Vir' || dataset[i].id == 'Cap' || dataset[i].id == 'Aqr') {
+            zodiacOnly.push(data.features[i]);
+        } else {}
+    };
+
+    console.log(zodiacOnly);
+
+
 
     xScale = d3.scaleLinear()
     .domain([
@@ -40,77 +47,54 @@ d3.json("constellations.json").then(function(data){
             return d3.max(d.geometry.coordinates[0][1]);
         }),
     ])
-    .range([padding, width - padding]);
+    .range([padding, height - padding]);
 
     var g = svg.selectAll(".collection") //<-- group per outer array
                 .data(dataset)
                 .enter()
                 .append("g")
-                .attr("class", "collection");
+                .attr("class", function(d) {
+                    console.log(d.id.includes('Lib'));
+                    return d.id;
+                });
 
             g.selectAll("point") //<-- here the nest
                 .data(function(d){
-                    console.log(d);
                     return d.geometry.coordinates[0]; //<-- this is your array of points
                 })
                 .enter()
                 .append("circle")
                 .attr("class", "point")
                 .attr("cx", function(d) {
-                    // return xScale(d.geometry.coordinates[0][j][0]);
+                    // return xScale(d.geometry.coordinates[0][0]);
                     return xScale(d[0]);
                 })
                 .attr("cy", function(d) {
-                    // return yScale(d.geometry.coordinates[0][j][1]);
-                    return yScale(d[1]);
-
+                    // return yScale(d.geometry.coordinates[0][1]);
+                    return yScale(d[1]) - 100;
                 })
-                .attr("r", 3)
-                .attr("opacity", .75)
                 .attr("fill", "#ffffff")
+                .attr("opacity", .75)
+                .attr("r", 3)
                 .attr("stroke", "none");
 
-    for (i = 0; i < dataset.length; i++) {
+    // for (i = 0; i < dataset.length; i++) {
 
-        if (dataset[i].geometry.coordinates.length > 1) {
-            dataset.splice(i,1);
-        };
+    //     if (dataset[i].geometry.coordinates.length > 1) {
+    //         dataset.splice(i,1);
+    //     };
 
-        
-        // console.log(dataset[i].geometry.coordinates[0].length);
-        // console.log(dataset[i]);
-
-        for (j = 0; j < dataset[i].geometry.coordinates[0].length; j++) {
-            // console.log(j);
-
-            //I think this isn't working because of the way d3 binds data. A for loop probably won't work.
-            //It looks like maybe I'd have to create a bunch of non-nested arrays for each of the coordinate pairs?
-            //And then run the below code again?
-            // svg.selectAll("circle")
-            //     .data(dataset)
-            //     .enter()
-            //     .append("circle")
-            //     .attr("cx", function(d) {
-            //         return xScale(d.geometry.coordinates[0][j][0]);
-            //     })
-            //     .attr("cy", function(d) {
-            //         return xScale(d.geometry.coordinates[0][j][1]);
-            //     })
-            //     .attr("r", 3)
-            //     .attr("opacity", .75)
-            //     .attr("fill", "#ffffff")
-            //     .attr("stroke", "none");
+    //     for (j = 0; j < dataset[i].geometry.coordinates[0].length; j++) {
    
-        }
+    //     }
 
 
-    }
+    // }
 
     
 
 
 });
-
 // console.log(document.getElementsByTagName("circle"));
 
 // yScale = d3.scaleLinear()
