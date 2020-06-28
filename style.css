@@ -1,3 +1,26 @@
 body {
     background-color: black;
 }
+
+p {
+    font-family: 'IBM Plex Mono', monospace;
+    color: white;
+    display: inline-block;
+    padding: 20px;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+p:hover {
+    font-style: italic;
+
+}
+
+.highlight {
+    stroke-width: 5px;
+    stroke: rgba(255, 255, 255, .75);
+}
+
+button {
+    padding: 10px;
+  }
