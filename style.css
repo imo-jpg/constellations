@@ -1,9 +1,29 @@
 body {
     background-color: black;
+    /* padding: 25px 50px; */
+}
+
+svg {
+    overflow: visible;
+}
+
+.container {
+    margin: auto;
+    /* position: relative; */
+    display: block;
+    width: 100%; 
+}
+
+.titles {
+    /* position: fixed; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 p {
     font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
     color: white;
     display: inline-block;
     padding: 20px;
@@ -12,8 +32,13 @@ p {
 }
 
 p:hover {
-    font-style: italic;
+    /* font-style: italic; */
+    text-decoration: underline;
 
+}
+
+#reset {
+    font-style: italic;
 }
 
 .highlight {
@@ -21,6 +46,20 @@ p:hover {
     stroke: rgba(255, 255, 255, .75);
 }
 
-button {
-    padding: 10px;
-  }
+.mobile {
+    height: 100vh;
+    text-align: right;
+    position: fixed;
+    right: 0;
+    top: 0;
+    float: right;
+    flex-direction: column;
+}
+
+.mobileReset {
+    display: none;
+}
+
+.mobileTitle {
+    font-size: 0px;
+}
