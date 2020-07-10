@@ -90,7 +90,7 @@ async function mapStars(nodes) {
 
     showHighlighted();
 
-    window.onresize = function(event) {
+    window.onload = function(event) {
         toMobile(event);
     };
 
