@@ -29,6 +29,8 @@ p {
     padding: 20px;
     cursor: pointer;
     pointer-events: all;
+    margin-block-start: .5em;
+    margin-block-end: .5em;
 }
 
 p:hover {
@@ -45,7 +47,7 @@ p:hover {
 }
 
 .mobile {
-    height: 3100;
+    height: 100vh;
     text-align: right;
     position: fixed;
     right: 0;
@@ -61,4 +63,9 @@ p:hover {
 .mobileTitle {
     font-size: 0px;
     /* transition: font-size 200ms; */
+}
+
+.mobileContainer {
+    height: 100vh;
+    overflow: scroll;
 }

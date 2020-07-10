@@ -6,6 +6,7 @@ let oneConst = [];
 let p = document.getElementsByTagName("p");
 
 
+
 const svg = d3.select(".container")
     .append("svg")
     .attr("height", height)
@@ -90,7 +91,7 @@ async function mapStars(nodes) {
 
     showHighlighted();
 
-    window.onload = function(event) {
+    window.onresize = function(event) {
         toMobile(event);
     };
 
@@ -172,6 +173,7 @@ async function mapStars(nodes) {
     }
 
     function toMobile() {
+        container = document.getElementsByClassName("container")[0];
         titles = document.getElementsByClassName("titles")[0];
         resetLink = document.getElementById("reset");
 
@@ -197,6 +199,7 @@ async function mapStars(nodes) {
             // svg.attr("transform", "translate(0 1250) rotate(90) scale(2.5)");
             // svg.attr("height", "100vh").attr("width", "100%");
 
+            container.classList.add("mobileContainer");
             titles.classList.add("mobile");
             resetLink.classList.add("mobileReset");
 
@@ -204,18 +207,19 @@ async function mapStars(nodes) {
                 p[i].classList.add("mobileTitle");
             }
 
-        window.onscroll = function() {scrollFunction()};
+        container.onscroll = function() {scrollFunction()};
 
         function scrollFunction() {
             let j = 0;
 
             for (let i = 1; i < p.length; i ++) {
-                if (document.documentElement.scrollTop > j && document.documentElement.scrollTop < j+150) {
+                // if (document.documentElement.scrollTop > j && document.documentElement.scrollTop < j+150) {
+                if (container.scrollTop > j && container.scrollTop < j + 120) {    
                     p[i].style.fontSize = "60px";
                 } else {
                     p[i].style.fontSize = "0px";
                 }
-                j += 150;
+                j += 120;
             }
         }
             
@@ -223,6 +227,7 @@ async function mapStars(nodes) {
             svg.attr("transform", "rotate(0)");
             titles.classList.remove("mobile");
             resetLink.classList.remove("mobileReset");
+            container.classList.add("mobileContainer");
 
             for (let i = 0; i < p.length; i++) {
                 p[i].classList.remove("mobileTitle");
