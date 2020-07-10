@@ -32,9 +32,7 @@ p {
 }
 
 p:hover {
-    /* font-style: italic; */
     text-decoration: underline;
-
 }
 
 #reset {
@@ -62,4 +60,5 @@ p:hover {
 
 .mobileTitle {
     font-size: 0px;
+    /* transition: font-size 200ms; */
 }

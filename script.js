@@ -211,7 +211,7 @@ async function mapStars(nodes) {
 
             for (let i = 1; i < p.length; i ++) {
                 if (document.documentElement.scrollTop > j && document.documentElement.scrollTop < j+150) {
-                    p[i].style.fontSize = "90px";
+                    p[i].style.fontSize = "60px";
                 } else {
                     p[i].style.fontSize = "0px";
                 }
