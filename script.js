@@ -5,7 +5,9 @@ let allStars = [];
 let oneConst = [];
 let p = document.getElementsByTagName("p");
 
-
+window.onload = function(event) {
+    toMobile(event);
+};
 
 const svg = d3.select(".container")
     .append("svg")
@@ -91,9 +93,7 @@ async function mapStars(nodes) {
 
     showHighlighted();
 
-    window.onresize = function(event) {
-        toMobile(event);
-    };
+    
 
 
     function showHighlighted() {
