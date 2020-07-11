@@ -1,6 +1,7 @@
 body {
     background-color: black;
     margin: 0px;
+    overflow: hidden;
     /* background: rgb(2,0,36);
     background: linear-gradient(0deg ,rgb(0,0,0) 0%, rgb(17,7,60) 100%); */
 
@@ -70,4 +71,5 @@ p:hover {
 .mobileContainer {
     height: 100vh;
     overflow: scroll;
+    -webkit-touch-overflow: scroll;
 }
