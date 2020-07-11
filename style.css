@@ -1,6 +1,5 @@
 body {
     background-color: black;
-    /* padding: 25px 50px; */
 }
 
 svg {
@@ -9,13 +8,12 @@ svg {
 
 .container {
     margin: auto;
-    /* position: relative; */
+    position: relative;
     display: block;
     width: 100%; 
 }
 
 .titles {
-    /* position: fixed; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;

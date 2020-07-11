@@ -93,7 +93,7 @@ async function mapStars(nodes) {
 
     await makeChart();
 
-    setTimeout(toMobile(), 3000);
+    setTimeout(toMobile(), 1000);
 
     showHighlighted();
 
@@ -179,14 +179,14 @@ async function mapStars(nodes) {
     }
 
     function toMobile() {
+
         container = document.getElementsByClassName("container")[0];
+        console.log(container);
         titles = document.getElementsByClassName("titles")[0];
         resetLink = document.getElementById("reset");
 
         if (screen.width <= 700) {
             
-            console.log(screen.width);
-
             let newHeight = 3000;
             let newWidth = 700;
 
@@ -221,7 +221,6 @@ async function mapStars(nodes) {
             let j = 0;
 
             for (let i = 1; i < p.length; i ++) {
-                // if (document.documentElement.scrollTop > j && document.documentElement.scrollTop < j+150) {
                 if (container.scrollTop > j && container.scrollTop < j + 120) {    
                     p[i].style.fontSize = "60px";
                 } else {
