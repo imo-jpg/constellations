@@ -1,5 +1,9 @@
 body {
     background-color: black;
+    margin: 0px;
+    /* background: rgb(2,0,36);
+    background: linear-gradient(0deg ,rgb(0,0,0) 0%, rgb(17,7,60) 100%); */
+
 }
 
 /* svg {
@@ -10,7 +14,7 @@ body {
     margin: auto;
     display: block;
     width: 100%; 
-    overflow: scroll;
+    z-index: 2;
 }
 
 .titles {

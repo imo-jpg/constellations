@@ -234,7 +234,7 @@ async function mapStars(nodes) {
             svg.attr("transform", "rotate(0)");
             titles.classList.remove("mobile");
             resetLink.classList.remove("mobileReset");
-            container.classList.add("mobileContainer");
+            container.classList.remove("mobileContainer");
 
             for (let i = 0; i < p.length; i++) {
                 p[i].classList.remove("mobileTitle");
