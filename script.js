@@ -6,7 +6,6 @@ let oneConst = [];
 let p = document.getElementsByTagName("p");
 
 
-
 const svg = d3.select(".container")
     .append("svg")
     .attr("height", height)
@@ -87,13 +86,22 @@ async function mapStars(nodes) {
 }
 
 (async function interactivity() {
+    // window.onload = function() {
+    //     console.log("hi");
+    //     toMobile();
+    // };
+
     await makeChart();
+
+    setTimeout(toMobile(), 3000);
 
     showHighlighted();
 
-    window.onload = function(event) {
-        toMobile(event);
-    };
+    
+
+    // document.addEventListener("DOMContentLoaded", function(){
+    //     toMobile(event);
+    // });
 
 
     function showHighlighted() {
@@ -135,8 +143,6 @@ async function mapStars(nodes) {
             let sortedArray = oneConst.sort(function(a, b) {
                 return b[0] - a[0];
             });
-
-            console.log(sortedArray);
     
             let median = Math.round((oneConst.length) / 2);
             let middleStarX = xScale((oneConst[median].star[0]));
@@ -179,6 +185,8 @@ async function mapStars(nodes) {
 
         if (screen.width <= 700) {
             
+            console.log(screen.width);
+
             let newHeight = 3000;
             let newWidth = 700;
 
